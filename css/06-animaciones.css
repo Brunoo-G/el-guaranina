@@ -1,0 +1,58 @@
+/* ============================================================
+   EL GUARANINÁ · Animaciones
+   Entrada de la portada, aparición de la escena y de cada sección
+   al scrollear. Al final, la variante para movimiento reducido.
+   ============================================================ */
+
+/* ============================ MOVIMIENTO ============================ */
+.tesis .ln > i{ transform:translateY(130%); transition:transform 900ms var(--out); }
+.lista .tesis .ln > i{ transform:none; }
+.lista .tesis .ln:nth-child(1) > i{ transition-delay:100ms; }
+.lista .tesis .ln:nth-child(2) > i{ transition-delay:170ms; }
+.lista .tesis .ln:nth-child(3) > i{ transition-delay:240ms; }
+.lista .tesis .ln:nth-child(4) > i{ transition-delay:310ms; }
+
+.lomas path{ stroke-dasharray:2600; stroke-dashoffset:2600;
+  transition:stroke-dashoffset 2600ms var(--out); }
+.lista .lomas path{ stroke-dashoffset:0; }
+.lista .lomas path:nth-child(2){ transition-delay:140ms; }
+.lista .lomas path:nth-child(3){ transition-delay:280ms; }
+.lista .lomas path:nth-child(4){ transition-delay:420ms; }
+
+.ave{ transform:translateX(-16vw); }
+.lista .ave{ animation:cruzar var(--dur) linear var(--del) infinite; }
+@keyframes cruzar{
+  from{ transform:translateX(-16vw) translateY(0); }
+  35% { transform:translateX(30vw)  translateY(-1.6rem); }
+  70% { transform:translateX(72vw)  translateY(.9rem); }
+  to  { transform:translateX(118vw) translateY(-.4rem); }
+}
+
+.escena .pieza{
+  opacity:0; transform:translateY(14px);
+  transition:opacity 900ms var(--soft), transform 1100ms var(--out);
+  transition-delay:var(--dl);
+}
+.escena.vista .pieza{ opacity:1; transform:none; }
+
+.rev{ opacity:0; transform:translateY(18px);
+  transition:opacity 620ms var(--soft), transform 760ms var(--out); }
+.rev.vista{ opacity:1; transform:none; }
+.rev.d1{ transition-delay:70ms; }
+.rev.d2{ transition-delay:140ms; }
+.rev.d3{ transition-delay:210ms; }
+
+.asientos li{ opacity:0; transform:translateY(14px);
+  transition:opacity 560ms var(--soft), transform 700ms var(--out); }
+.asientos.vista li{ opacity:1; transform:none; }
+/* El escalonado va en la regla base para que también se note al salir. */
+.asientos li:nth-child(2){ transition-delay:80ms; }
+.asientos li:nth-child(3){ transition-delay:160ms; }
+
+@media (prefers-reduced-motion: reduce){
+  .tesis .ln > i,.rev,.asientos li,.escena .pieza{
+    transform:none !important; opacity:0; transition:opacity 380ms linear; }
+  .lista .tesis .ln > i,
+  .rev.vista,.asientos.vista li,.escena.vista .pieza{ opacity:1; }
+  html{ scroll-behavior:auto; }
+}

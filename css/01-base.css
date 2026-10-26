@@ -1,0 +1,103 @@
+/* ============================================================
+   EL GUARANINÁ · Base
+   Variables de color y medida, reset, tipografías y las
+   superficies que pinta el navegador (selección, foco, barra de scroll).
+   ============================================================ */
+
+/* ============================================================
+   EL GUARANINÁ — Ganadería regenerativa · Federal, Entre Ríos
+
+   PARA EDITAR (todo está acá arriba):
+   1. CORREO      → buscá  var EMAIL =  al final del archivo.
+   2. FOTOS/VIDEO → --img-portada y --img-filosofia, acá abajo.
+                    Cambiá  none  por  url("https://...")
+   3. SECCIONES   → agregalas al <nav id="menu"> y listo.
+   ============================================================ */
+
+:root{
+  /* ---- Slots de imagen (vacíos: la página funciona sin ellos) ---- */
+  --img-portada:   none;
+  --img-filosofia: none;
+  --img-prensa: url("../img/prensa-fondo.webp");
+
+  /* ---- Papel de campo, tinta, y el fruto del guaraniná ---- */
+  --bg:        #F2EEE4;
+  --bg-alt:    #E8E2D4;
+  --barra:     #12150C;
+  --barra-fg:  #F2EEE4;
+  --barra-fg2: #9C9784;
+  --ink:       #191C15;
+  --ink-2:     #5C5849;
+  --accent:    #6B2239;
+  --verde:     #3F5A38;   /* el verde del monte, para el botón de envío */
+  --verde-luz: #7DA772;   /* el mismo verde, aclarado para fondos oscuros */
+  --accent-fg: #F6F1E6;
+  --rule:      rgba(25,28,21,.14);
+  --rule-2:    rgba(25,28,21,.28);
+
+  --pad:    clamp(1rem, 5vw, 4.5rem);
+  --gutter: clamp(2.5rem, 6vw, 6rem);
+  --alto-barra: 4.4rem;
+
+  --out:  cubic-bezier(.16,1,.3,1);
+  --soft: cubic-bezier(.4,0,.2,1);
+
+  color-scheme: light;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Figtree",-apple-system,"Segoe UI",system-ui,sans-serif;
+  font-size:clamp(1rem,.95rem + .25vw,1.1rem);
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+::selection{ background:var(--accent); color:var(--accent-fg); }
+:root{ scrollbar-color:var(--ink-2) var(--bg); }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+a{ color:inherit; text-underline-offset:.18em; text-decoration-thickness:from-font; }
+h1,h2,h3,p{ margin:0; font-weight:inherit; }
+html{ scroll-behavior:smooth; scroll-padding-top:5.5rem; }
+
+/* ============================ TIPOGRAFÍA ============================ */
+.display{
+  font-family:"Barlow Condensed","Helvetica Neue Condensed","Arial Narrow",system-ui,sans-serif;
+  font-weight:500;
+  letter-spacing:-.005em;
+  line-height:1.02;
+  text-wrap:balance;
+}
+.rotulo{
+  font-size:.68rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:.19em;
+  color:var(--ink-2);
+}
+
+/* Pantalla de carga: tapa todo con el negro de la barra y muestra el logo
+   hasta que la página terminó de cargar. El JS le pone .fuera para que se
+   desvanezca; si el JS no corre, el <noscript> del final la borra. */
+.carga{
+  position:fixed; inset:0; z-index:120;
+  display:grid; place-items:center;
+  background:var(--barra);
+  transition:opacity .55s ease;
+}
+.carga img{
+  width:clamp(180px,38vw,300px); height:auto;
+  animation:latido 1.7s ease-in-out infinite;
+}
+.carga.fuera{ opacity:0; pointer-events:none; }
+@keyframes latido{ 0%,100%{ opacity:1 } 50%{ opacity:.5 } }
+@media (prefers-reduced-motion:reduce){
+  .carga{ transition:none; }
+  .carga img{ animation:none; }
+}
+
+/* Mientras la pantalla de carga está puesta no se puede scrollear. */
+html:has(.carga:not(.fuera)){ overflow:hidden; }

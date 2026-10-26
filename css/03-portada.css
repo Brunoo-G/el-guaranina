@@ -1,0 +1,126 @@
+/* ============================================================
+   EL GUARANINÁ · Portada
+   La frase de entrada, el video de fondo a pantalla completa
+   y su velo oscuro.
+   ============================================================ */
+
+/* ============================ PORTADA ============================ */
+.portada{
+  position:relative;
+  min-height:min(58svh,32rem);
+  padding:calc(var(--alto-barra) + clamp(3rem,8vw,6rem)) var(--pad) clamp(3rem,7vw,5rem);
+  display:flex; flex-direction:column; justify-content:center;
+  overflow:hidden;
+}
+@media (max-width:760px){
+  .portada{
+    min-height:auto;
+    padding:calc(var(--alto-barra) + 2.4rem) var(--pad) 2.2rem;
+    justify-content:flex-start;
+  }
+}
+.portada::before{
+  content:""; position:absolute; inset:0; z-index:0;
+  background-image:var(--img-portada);
+  background-size:cover; background-position:center;
+  opacity:.3;
+}
+.portada > *{ position:relative; z-index:2; }
+
+/* --- Video de fondo --- */
+.video-fondo{
+  position:absolute; inset:0; z-index:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  background:var(--barra);
+}
+/* El velo oscuro: baja el video para que el texto mande */
+.portada.con-video::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to bottom,
+    rgba(12,15,8,.80) 0%,
+    rgba(12,15,8,.66) 38%,
+    rgba(12,15,8,.72) 100%);
+}
+/* Con video, la portada ocupa la pantalla entera y el texto va al medio.
+   100svh es la altura visible más chica del celular: así nunca queda
+   tapada por la barra del navegador. */
+.portada.con-video{
+  min-height:100vh;
+  min-height:100svh;
+  /* Sin reserva para la barra: al cargar no está, así que la frase se centra
+     contra la pantalla completa. */
+  padding:0 var(--pad);
+  justify-content:center;
+  color:var(--barra-fg);
+}
+/* El logo de la portada: ocupa el lugar de la barra mientras está escondida.
+   Cuando la barra baja, este se apaga y el de la barra toma la posta. */
+.portada .marca-portada{
+  position:absolute; z-index:2;
+  left:50%; top:clamp(1.5rem,4vh,2.8rem);
+  transform:translateX(-50%);
+  display:block; line-height:0;
+  opacity:1; transition:opacity 380ms var(--soft);
+}
+.portada .marca-portada img{
+  display:block; width:clamp(185px,26vw,285px); height:auto;
+}
+body:not(.tope) .portada .marca-portada{ opacity:0; pointer-events:none; }
+@media (prefers-reduced-motion:reduce){
+  .portada .marca-portada{ transition:none; }
+}
+
+/* Aviso de que la página sigue: mientras la barra está escondida, esto es lo
+   único que le dice al visitante que hay más abajo. Se desvanece al scrollear
+   y no intercepta el mouse. */
+.portada .baja{
+  position:absolute; z-index:2;
+  left:50%; bottom:clamp(1.5rem,4vh,2.8rem);
+  transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.55rem;
+  color:#FFFFFF; opacity:.5;
+  font-size:.6rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:.22em; white-space:nowrap;
+  pointer-events:none;
+  transition:opacity 380ms var(--soft);
+}
+body:not(.tope) .portada .baja{ opacity:0; }
+.portada .baja svg{ display:block; animation:bajar 2.2s ease-in-out infinite; }
+@keyframes bajar{
+  0%,100%{ transform:translateY(0) }
+  50%    { transform:translateY(5px) }
+}
+@media (prefers-reduced-motion:reduce){
+  .portada .baja svg{ animation:none; }
+  .portada .baja{ transition:none; }
+}
+
+.portada.con-video .tesis{ color:#FFFFFF;
+  /* Compensación óptica: las mayúsculas dejan menos aire arriba que las colas
+     abajo, así que el bloque se sube medio margen para quedar centrado a la
+     vista, no a la caja. Medido sobre la tinta real, no sobre la caja. */
+  margin-bottom:.12em; }
+@media (max-width:760px){
+  /* En celular la frase parte en más renglones y la última no lleva colas:
+     no necesita compensación. */
+  .portada.con-video .tesis{ margin-bottom:0; }
+  .portada.con-video{
+    min-height:100vh;
+    min-height:100svh;
+    padding:0 1rem;
+    justify-content:center;
+  }
+}
+
+
+.tesis{
+  font-size:clamp(1.6rem,8.2vw,4.9rem);
+  max-width:26ch;
+}
+.tesis .ln{ display:block; overflow:hidden;
+  /* La máscara de la animación cortaba las colas de la "y" y la "p".
+     Se agranda hacia abajo y se descuenta con margen negativo: el
+     renglón ocupa lo mismo, pero el recorte cae por debajo del trazo. */
+  padding-bottom:.14em; margin-bottom:-.14em; }
+.tesis .ln > i{ display:block; font-style:normal; }

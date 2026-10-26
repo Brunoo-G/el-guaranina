@@ -1,0 +1,48 @@
+/* ============================================================
+   EL GUARANINÁ · Escena de campo
+   Los cinco dibujos posicionados en porcentajes sobre un lienzo
+   con proporción fija. En celular se ocultan los árboles.
+   ============================================================ */
+
+/* --- La escena del campo, al cierre de Filosofía de trabajo --- */
+/* Sale de los márgenes de la sección para ir a sangre. El margen negativo
+   de arriba recorta el cielo vacío que queda por encima de los árboles:
+   medido sobre el render, no estimado. Al ir en %, la proporción se
+   mantiene en cualquier pantalla. */
+.escena-marco{
+  overflow:hidden; background:var(--bg);
+  margin-inline:calc(var(--pad) * -1);
+  margin-top:0;
+}
+.escena{
+  position:relative; width:100%;
+  aspect-ratio:640 / 233;
+  /* Recorta el cielo sobrante de arriba, medido sobre los propios dibujos:
+     3.19% del ancho es lo que queda por encima de la punta del árbol más alto.
+     Al ir en %, la proporción se mantiene en cualquier pantalla. */
+  margin-top:-3.12%;
+}
+.escena .pieza{
+  position:absolute; display:block;
+  left:var(--x); bottom:var(--b);
+  width:var(--w); height:auto;
+}
+.escena .arbol{ width:auto; height:var(--h); bottom:auto; top:var(--t); }
+.escena .arbol-d{ left:auto; right:var(--x); }
+
+.escena .p-vaca { --w:34.3%; --x:13.7%; --b:8.92%; }
+.escena .p-oveja{ --w:11.4%; --x:40.3%; --b:45.82%; }
+.escena .p-vacas{ --w:31.1%; --x:52.5%; --b:17.52%; }
+.escena .arbol-i{ --h:126%; --x:-37.5%; --t:-5.32%; }
+.escena .arbol-d{ --h:117%; --x:-35.5%; --t:-1.5%; }
+
+/* En celular se van los árboles y la hacienda ocupa todo el ancho */
+/* La sección que sigue arranca pegada a la escena */
+
+@media (max-width:760px){
+  .escena{ aspect-ratio:640 / 242; margin-top:-3%; }
+  .escena .arbol{ display:none; }
+  .escena .p-vaca { --w:46.5%; --x:2%;    --b:3%; }
+  .escena .p-oveja{ --w:15.5%; --x:38.5%; --b:36%; }
+  .escena .p-vacas{ --w:42.0%; --x:54.5%; --b:11%; }
+}
