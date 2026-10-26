@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Guaraniná — Ganadería regenerativa</title>
+  <meta name="description" content="El Guaraniná — ganadería regenerativa en Federal, Entre Ríos. Ovinos y bovinos criados a pastura por una empresa familiar.">
+
+  <meta property="og:title" content="El Guaraniná">
+  <meta property="og:description" content="Ganadería regenerativa en Federal, Entre Ríos.">
+  <meta property="og:image" content="video/portada-poster.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..700&display=swap">
+
+  <!-- Estilos. EL ORDEN IMPORTA: cada archivo puede pisar al anterior. -->
+  <link rel="stylesheet" href="css/01-base.css">
+  <link rel="stylesheet" href="css/02-barra.css">
+  <link rel="stylesheet" href="css/03-portada.css">
+  <link rel="stylesheet" href="css/04-escena.css">
+  <link rel="stylesheet" href="css/05-secciones.css">
+  <link rel="stylesheet" href="css/06-animaciones.css">
+</head>
+<body>
+
+<!-- ==== CUERPO ==== -->
+
+<div class="carga" id="carga" aria-hidden="true">
+  <img src="img/logo.png" alt="" width="600" height="200">
+</div>
+<noscript><style>.carga{ display:none }</style></noscript>
+
+<header class="barra" id="barra">
+  <button class="abrir" id="abrir" aria-expanded="false" aria-controls="menu">
+    <svg width="20" height="13" viewBox="0 0 20 13" aria-hidden="true">
+      <rect x="0" y="0" width="20" height="1.5"></rect>
+      <rect x="0" y="5.75" width="20" height="1.5"></rect>
+      <rect x="0" y="11.5" width="20" height="1.5"></rect>
+    </svg>
+    <span class="txt" data-en="Menu">Menú</span>
+  </button>
+
+  <a class="marca" href="#arriba" aria-label="El Guaraniná — inicio">
+    <img src="img/logo.png" alt="El Guaraniná, ganadería regenerativa">
+  </a>
+
+  <div class="derecha">
+    <div class="idioma" role="group" aria-label="Idioma" data-en-aria="Language">
+      <button type="button" class="lang activo" data-idioma="es" aria-pressed="true">ES</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang" data-idioma="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- Para sumar secciones más adelante, agregá un <a> acá. -->
+<nav class="menu" id="menu" aria-label="Secciones" data-en-aria="Sections">
+  <a href="#somos" data-en="Who we are">Quiénes somos</a>
+  <a href="#establecimiento" data-en="The farm">El establecimiento</a>
+  <a href="#filosofia" data-en="How we work">Filosofía de trabajo</a>
+  <a href="#beneficios" data-en="Benefits">Beneficios</a>
+  <a href="#prensa" data-en="Press">Prensa</a>
+  <a href="#contacto" data-en="Contact">Contacto</a>
+</nav>
+<div class="velo" id="velo"></div>
+
+<main id="arriba">
+
+  <!-- ===================== PORTADA ===================== -->
+  <section class="portada con-video">
+    <video class="video-fondo" autoplay muted loop playsinline preload="auto"
+           poster="video/portada-poster.jpg" aria-hidden="true" tabindex="-1">
+      <source src="video/portada.mp4" type="video/mp4">
+    </video>
+
+    <a class="marca-portada" href="#arriba" aria-label="El Guaraniná — inicio">
+      <img src="img/logo.png" alt="El Guaraniná, ganadería regenerativa" width="600" height="200">
+    </a>
+
+    <h1 class="tesis display">
+      <span class="ln"><i data-en="Producing quality meat">Producir carne de calidad</i></span>
+      <span class="ln"><i data-en="and caring for the environment">y cuidar al medioambiente</i></span>
+      <span class="ln"><i data-en="are not opposing goals,">no son objetivos opuestos,</i></span>
+      <span class="ln"><i data-en="but part of one and the same path">sino parte de un mismo camino</i></span>
+    </h1>
+
+    <span class="baja" aria-hidden="true">
+      <span>Scroll down</span>
+      <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true">
+        <path d="M7 1v14M1.6 9.6 7 15.4l5.4-5.8" stroke="currentColor" stroke-width="1.3"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+
+  </section>
+
+  <!-- ===================== QUIÉNES SOMOS ===================== -->
+  <section class="banda" id="somos">
+    <div class="rejilla">
+      <div class="lado">
+        <span class="raya"></span>
+        <h2 class="titulo-seccion display rev" data-en="Who we are">Quiénes somos</h2>
+      </div>
+
+      <div>
+        <div class="prosa">
+          <p class="rev" data-en="We are a <strong>family business</strong> that has been raising livestock for generations.">Somos una <strong>empresa familiar</strong> dedicada a la producción ganadera desde hace generaciones.</p>
+          <p class="rev d1" data-en="In 2017 we began a shift towards regenerative livestock farming, <strong>convinced that producing quality meat also means caring for the land that makes it possible and putting the wellbeing of our animals first.</strong>">En 2017 iniciamos un camino de transformación hacia la ganadería regenerativa, <strong>convencidos de que producir carne de calidad también implica cuidar la tierra que nos permite hacerlo y priorizar el bienestar de nuestros animales.</strong></p>
+          <!-- <p class="rev d1">En 2017 iniciamos un camino de transformación hacia la ganadería regenerativa, <strong>convencidos de que es posible producir carne de la mejor calidad, al mismo tiempo que cuidamos l medioambiente, regenerando los ecosistemas y priorizando el bienestar de nuestros animales.</strong></p> -->
+          <p class="rev d2" data-en="Today we raise sheep and cattle, <strong>backed by certifications and partnerships that vouch for our commitment to responsible production.</strong>">Actualmente nos dedicamos a la producción de ovinos y bovinos, <strong>respaldados por certificaciones y alianzas que validan nuestro compromiso con una producción responsable.</strong></p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== EL ESTABLECIMIENTO ===================== -->
+  <section class="banda tono ancha" id="establecimiento">
+    <div class="rejilla">
+      <div class="lado">
+        <span class="raya"></span>
+        <h2 class="titulo-seccion display rev" data-en="The farm">El establecimiento</h2>
+      </div>
+
+      <div>
+        <div class="prosa">
+          <p class="rev" data-en="The farm lies in <strong>Federal, in the province of Entre Ríos, Argentina</strong>, in the heart of the <strong>Selva de Montiel</strong>, a landscape of native woodland and natural grassland where a wide range of local wildlife lives side by side. To us it is <strong>not simply the land we produce on, but an ecosystem we are part of and want to respect through the way we manage it.</strong>">El campo se encuentra en la localidad de <strong>Federal, provincia de Entre Ríos, Argentina</strong>, ubicado en el corazón de la <strong>Selva de Montiel</strong>, un paisaje de monte nativo y pastizales naturales donde conviven diversas especies de la fauna local. Para nosotros, <strong>no es simplemente la tierra donde producimos, sino un ecosistema del que también formamos parte y queremos respetar a través de nuestras prácticas de manejo.</strong></p>
+        </div>
+
+        <div class="objetivo rev">
+          <p class="rotulo" data-en="What we have achieved">Nuestros logros</p>
+        </div>
+        
+        <dl class="ficha">
+          <div class="ficha-fila rev">
+            <img class="ficha-ico" src="img/icono-manejo.webp" alt="" width="400" height="400">
+            <dt data-en="Holistic management">Manejo holístico</dt>
+            <dd data-en="We work with a planning and decision-making method that looks at the whole production process: soil, grass, water, animals and people. Every decision looks for the balance between the environmental, the social and the economic.">Trabajamos con un método de planificación y toma de decisiones que mira el proceso productivo completo: suelo, pasto, agua, animales y personas. Cada decisión busca el equilibrio entre lo ambiental, lo social y lo económico.</dd>
+          </div>
+          <div class="ficha-fila rev d1">
+            <img class="ficha-ico ico-aves" src="img/icono-aves.webp" alt="" width="400" height="400">
+            <dt data-en="Native bird refuge">Refugio de aves nativas</dt>
+            <dd data-en="Conserving the woodland and the life in the soil turned the farm into a haven for many bird species native to the Entre Ríos monte, birds that are ever harder to find where the grassland has been replaced. It has also made the farm a place of interest for watching the different species.">La conservación del monte y la biodiversidad del suelo hicieron del campo un ambiente propicio que hoy funciona como refugio para numerosas especies de aves nativas del monte entrerriano, cada vez más difíciles de encontrar en lugares donde el pastizal fue reemplazado. Esto también convirtió al campo en un punto de interés para realizar avistajes de las distintas especies.</dd>
+          </div>
+          <div class="ficha-fila rev d2">
+            <img class="ficha-ico" src="img/icono-carbono.webp" alt="" width="400" height="400">
+            <dt data-en="Carbon credit">Crédito de carbono</dt>
+            <dd data-en="Our practices strengthen the ability of the soil to capture and store CO₂ from the atmosphere, letting us play an active part in reducing greenhouse gases. This made us one of the first farms in Argentina to adopt certified protocols for measuring and capturing carbon.">Nuestras prácticas favorecen la capacidad del suelo para capturar y almacenar CO₂ de la atmósfera, permitiéndonos contribuir activamente a la reducción de gases de efecto invernadero. Gracias a esto, nos convertimos en uno de los primeros establecimientos de Argentina en integrar protocolos certificados para la medición y captura de carbono.</dd>
+          </div>
+        </dl>
+
+        <div class="aliados">
+          <h3 class="titulo-bloque display rev" data-en="Partnerships and certifications">Alianzas y certificaciones</h3>
+          <!-- La pista se repite tres veces para que el desfile no tenga costura.
+               Las copias van ocultas para lectores de pantalla. -->
+          <div class="carrusel rev d1">
+            <ul class="carrusel-pista">
+            <li class="aliado">
+              <a href="https://alianzadelpastizal.birdlife.org/es/" target="_blank" rel="noopener noreferrer">
+                <span class="aliado-marca"><img src="img/aliado-alianza-pastizal.png" class="m-pastizal" alt="Alianza del Pastizal" width="353" height="160" loading="lazy"></span>
+                <span class="aliado-nombre">Alianza del Pastizal</span>
+                <span class="aliado-web">alianzadelpastizal.birdlife.org</span>
+              </a>
+            </li>
+            <li class="aliado">
+              <a href="https://www.avesargentinas.org.ar/" target="_blank" rel="noopener noreferrer">
+                <span class="aliado-marca"><img src="img/aliado-aves-argentinas.png" class="m-aves" alt="Aves Argentinas" width="299" height="246" loading="lazy"></span>
+                <span class="aliado-nombre">Aves Argentinas</span>
+                <span class="aliado-web">avesargentinas.org.ar</span>
+              </a>
+            </li>
+            <li class="aliado">
+              <a href="https://boomitra.com/es/" target="_blank" rel="noopener noreferrer">
+                <span class="aliado-marca"><img src="img/aliado-boomitra.png" class="m-boomitra" alt="Boomitra" width="376" height="67" loading="lazy"></span>
+                <span class="aliado-nombre">Boomitra</span>
+                <span class="aliado-web">boomitra.com</span>
+              </a>
+            </li>
+            <li class="aliado" aria-hidden="true">
+              <a href="https://alianzadelpastizal.birdlife.org/es/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="aliado-marca"><img src="img/aliado-alianza-pastizal.png" class="m-pastizal" alt="Alianza del Pastizal" width="353" height="160" loading="lazy"></span>
+                <span class="aliado-nombre">Alianza del Pastizal</span>
+                <span class="aliado-web">alianzadelpastizal.birdlife.org</span>
+              </a>
+            </li>
+            <li class="aliado" aria-hidden="true">
+              <a href="https://www.avesargentinas.org.ar/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="aliado-marca"><img src="img/aliado-aves-argentinas.png" class="m-aves" alt="Aves Argentinas" width="299" height="246" loading="lazy"></span>
+                <span class="aliado-nombre">Aves Argentinas</span>
+                <span class="aliado-web">avesargentinas.org.ar</span>
+              </a>
+            </li>
+            <li class="aliado" aria-hidden="true">
+              <a href="https://boomitra.com/es/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="aliado-marca"><img src="img/aliado-boomitra.png" class="m-boomitra" alt="Boomitra" width="376" height="67" loading="lazy"></span>
+                <span class="aliado-nombre">Boomitra</span>
+                <span class="aliado-web">boomitra.com</span>
+              </a>
+            </li>
+            <li class="aliado" aria-hidden="true">
+              <a href="https://alianzadelpastizal.birdlife.org/es/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="aliado-marca"><img src="img/aliado-alianza-pastizal.png" class="m-pastizal" alt="Alianza del Pastizal" width="353" height="160" loading="lazy"></span>
+                <span class="aliado-nombre">Alianza del Pastizal</span>
+                <span class="aliado-web">alianzadelpastizal.birdlife.org</span>
+              </a>
+            </li>
+            <li class="aliado" aria-hidden="true">
+              <a href="https://www.avesargentinas.org.ar/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="aliado-marca"><img src="img/aliado-aves-argentinas.png" class="m-aves" alt="Aves Argentinas" width="299" height="246" loading="lazy"></span>
+                <span class="aliado-nombre">Aves Argentinas</span>
+                <span class="aliado-web">avesargentinas.org.ar</span>
+              </a>
+            </li>
+            <li class="aliado" aria-hidden="true">
+              <a href="https://boomitra.com/es/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="aliado-marca"><img src="img/aliado-boomitra.png" class="m-boomitra" alt="Boomitra" width="376" height="67" loading="lazy"></span>
+                <span class="aliado-nombre">Boomitra</span>
+                <span class="aliado-web">boomitra.com</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FILOSOFÍA ===================== -->
+  <section class="banda" id="filosofia">
+    <div class="rejilla">
+      <div class="lado">
+        <span class="raya"></span>
+        <h2 class="titulo-seccion display rev" data-en="How we work">Filosofía de trabajo</h2>
+      </div>
+
+      <div>
+        <div class="prosa">
+          <p class="rev" data-en="We believe <strong>food should be produced healthily, responsibly and in harmony with nature.</strong>">Creemos que <strong>los alimentos deben producirse de manera sana, responsablemente y en armonía con la naturaleza.</strong></p>
+          <p class="rev d1" data-en="That is why we set out to offer <strong>100% grass-fed meat</strong> with <strong>real flavour, high nutritional value and a quality that begins long before it reaches the plate:</strong>">Por eso trabajamos para ofrecer <strong>carne 100% a pastura</strong> con un <strong>sabor auténtico, alto valor nutricional y una calidad que comienza mucho antes de llegar al plato:</strong></p>
+        </div>
+
+        <ul class="asientos">
+          <li><span class="punto"></span><b data-en="In the health of the soil">En la salud del suelo</b></li>
+          <li><span class="punto"></span><b data-en="In the wellbeing of the animals">En el bienestar de los animales</b></li>
+          <li><span class="punto"></span><b data-en="In respect for natural processes">En el respeto por los procesos naturales</b></li>
+        </ul>
+
+        <div class="objetivo rev">
+          <p class="rotulo" data-en="Our commitment">Nuestro compromiso</p>
+          <div class="prosa">
+            <p data-en="<strong>To produce the best 100% grass-fed meat while respecting the environment and its biodiversity, and regenerating the soil for the generations to come.</strong>"><strong>Producir la mejor carne 100% a pastura, respetando al medioambiente, su biodiversidad y regenerando el suelo para las próximas generaciones.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- La misma escena que cierra Quiénes somos -->
+    <div class="escena-marco">
+      <div class="escena" role="img" aria-label="Vacas y ovejas pastando entre árboles" data-en-aria="Cows and sheep grazing among trees">
+        <img class="pieza arbol arbol-i" src="img/arbol-ralo.webp" alt="" style="--dl:0ms">
+        <img class="pieza p-vaca"  src="img/vaca.webp"  alt="" style="--dl:120ms">
+        <img class="pieza p-oveja" src="img/oveja.webp" alt="" style="--dl:220ms">
+        <img class="pieza p-vacas" src="img/vacas.webp" alt="" style="--dl:320ms">
+        <img class="pieza arbol arbol-d" src="img/arbol-denso.webp" alt="" style="--dl:80ms">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BENEFICIOS ===================== -->
+  <section class="banda tono" id="beneficios">
+    <div class="rejilla">
+      <div class="lado">
+        <span class="raya"></span>
+        <h2 class="titulo-seccion display rev" data-en="Benefits">Beneficios</h2>
+      </div>
+
+      <div>
+        <ul class="beneficios sin-entrada">
+          <li class="ben rev">
+            <p class="num" data-en="For the animals">Para los animales</p>
+            <h3 class="display" data-en="They live as they should">Viven como corresponde</h3>
+            <p data-en="Out in the open, in a herd, with free access to water, with woodland shade for shelter and eating what the grassland gives in each season. They move, graze and rest at their own pace, with no confinement and no forced diets. The result: an animal free of stress, gentle in temperament, that grows better and falls ill less often.">A campo abierto, en grupo, con libre acceso al agua, en montes con sombra para reparo y comiendo lo que el pastizal brinda en cada estación. Se mueven, pastorean y descansan a su ritmo, sin encierro ni dietas forzadas. Dando como resultado un animal sin estrés, de temperamento dócil, que crece mejor y se enferma menos.</p>
+          </li>
+          <li class="ben rev d1">
+            <p class="num" data-en="For the environment">Para el ambiente</p>
+            <h3 class="display" data-en="The land recovers">El campo se recupera</h3>
+            <p data-en="Our practices encourage biodiversity across the ecosystem, helping the soil regenerate and the habitat hold together. Through planned rotation of the herd and resting the paddocks, the grassland grows back, puts down deeper roots and returns organic matter to the soil. The result is more ground cover, better water infiltration and more carbon captured.">Nuestras prácticas promueven la biodiversidad de los ecosistemas, contribuyendo a la regeneración de los suelos y a la conservación ambiental. A través de la rotación planificada del ganado y el descanso de los potreros, se estimula el crecimiento del pastizal, permitiendo que desarrolle raíces más profundas y aporte materia orgánica. Esto se traduce en una mayor cobertura vegetal, una mejor infiltración del agua y un incremento en la captura de carbono.</p>
+          </li>
+          <li class="ben rev d2">
+            <p class="num" data-en="For people">Para las personas</p>
+            <h3 class="display" data-en="More flavour and more nutrition">Más sabor y mayor valor nutricional</h3>
+            <p data-en="<strong>Meat produced entirely on natural pasture brings real health benefits to the people who eat it</strong>, as it contains more omega-3 and a better balanced omega-6 to omega-3 ratio than feedlot (grain-fed) meat, along with higher levels of CLA, vitamin E and carotenes. <strong>It is leaner, and its flavour is deeper and more concentrated.</strong>"><strong>La carne producida 100% en praderas naturales posee beneficios para la salud de los consumidores</strong>, ya que contiene más omega-3 y una relación omega-6/omega-3 más equilibrada que la carne de feedlot (alimentada a grano), además tiene mayores niveles de CLA, vitamina E y carotenos. <strong>Es más magra y tiene un sabor más intenso y concentrado.</strong></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRENSA ===================== -->
+  <section class="banda ancha foto" id="prensa">
+    <div class="rejilla">
+      <div class="lado">
+        <span class="raya"></span>
+        <h2 class="titulo-seccion display rev" data-en="Press">Prensa</h2>
+      </div>
+
+      <div>
+        <!-- Tira que se desliza de costado. Para sumar una nota, copiá un <li>. -->
+        <div class="tira">
+          <ul class="notas">
+            <li class="nota rev">
+              <p class="nota-medio">Campo en Acción</p>
+              <h3 class="nota-titulo display">El Guaraniná: ganadería sustentable con manejo integral y regenerativo de los ecosistemas</h3>
+              <p class="nota-dato" data-en="Article · June 2020">Nota · junio 2020</p>
+              <a class="nota-btn" href="https://campoenaccion.com/actualidad/el-guaranin-ganadera-sustentable-con-manejo-integral-y-regenerativo-de-los-ecosistemas.htm"
+                 target="_blank" rel="noopener noreferrer" data-en="read article">ver nota</a>
+            </li>
+            <li class="nota rev d1">
+              <p class="nota-medio">Campo en Acción</p>
+              <h3 class="nota-titulo display">Ganadería sustentable en el establecimiento El Guaraniná, con Jorge González Vera</h3>
+              <p class="nota-dato">Video</p>
+              <a class="nota-btn" href="https://www.youtube.com/watch?v=9ToBZ5U9z_U"
+                 target="_blank" rel="noopener noreferrer" data-en="watch video">ver video</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="banda" id="contacto">
+    <div class="rejilla">
+      <div class="lado">
+        <span class="raya"></span>
+        <h2 class="titulo-seccion display rev" data-en="Contact">Contacto</h2>
+      </div>
+
+      <div>
+        <div class="prosa">
+          <p class="rev" data-en="Would you like to get to know our products? Send us a message!">¿Te gustaría conocer nuestros productos? ¡Envianos tu consulta!</p>
+        </div>
+
+        <form class="form rev d2" id="form" novalidate>
+          <div class="campo-form">
+            <label for="nombre" data-en="Name">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Cómo te llamás" data-en-ph="Your name">
+          </div>
+          <div class="campo-form">
+            <label for="email" data-en="Email">Correo</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="tunombre@correo.com" data-en-ph="yourname@email.com" required>
+          </div>
+          <div class="campo-form">
+            <label for="mensaje" data-en="Message">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?" data-en-ph="How can we help?"></textarea>
+          </div>
+          <button class="btn" type="submit" data-en="Send message">Enviar mensaje</button>
+          <p class="aviso" id="aviso" role="status" hidden></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="pie-grid">
+    <a class="marca" href="#arriba" aria-label="El Guaraniná — inicio">
+      <img src="img/logo-tinta.png" alt="El Guaraniná, ganadería regenerativa">
+    </a>
+    <div class="pie-datos">
+      <a id="mail-link-pie" href="#">correo</a>
+      <span>Federal, Entre Ríos · Argentina</span>
+    </div>
+  </div>
+  <div class="pie-legal">
+    <span>© <span id="anio">2026</span> El Guaraniná · <span data-en="Regenerative livestock farming">Ganadería regenerativa</span></span>
+  </div>
+</footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
